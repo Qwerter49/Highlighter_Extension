@@ -17,7 +17,8 @@ chrome.runtime.onMessage.addListener(
             }
             const highlight = `<div style="display: inline; background-color: yellow;">${text}</div>`
             parent.innerHTML = parent.innerHTML.replace(text, highlight)
-        } else if(request.text === "highlight this text"){
+        }
+        else if(request.text === "go select some text to highlight"){
             let text = "";
             let parent;
             let activeEl = document.activeElement;
