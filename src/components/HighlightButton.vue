@@ -1,20 +1,24 @@
 <template>
-    <button @click="sendMessage">Highlight!</button>
+  <div>
+    <button @click="clickAfterHighlight">Highlight!</button>
+    <button @click="clickBeforeHighlight">Select then highlight</button>
+  </div>
 </template>
 
 <script>
-// import { MdButton } from 'vue-material/dist/components'
 
 export default {
   name: "HighlightButton",
   methods: {
-    sendMessage: function(){
+    clickAfterHighlight: function(){
       chrome.tabs.query({active: true, currentWindow: true}, function(tabs){
-        chrome.tabs.sendMessage(tabs[0].id, {text: "grab this text"});
+        chrome.tabs.sendMessage(tabs[0].id, {text: "highlight this text"});
       })
     },
-    handleClick: function() {
-      console.log("Ive been clicked! On the popup page!")
+    clickBeforeHighlight: function() {
+      chrome.tabs.query({active: true, currentWindow: true}, function(tabs){
+        chrome.tabs.sendMessage(tabs[0].id, {text: "go select some text to highlight"});
+      })
     }
   }
 };
