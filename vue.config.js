@@ -14,7 +14,8 @@ module.exports = {
         },
         contentScripts: {
           entries: {
-            "content-script": ["src/content-scripts/content-script.js"]
+            "content-script": ["src/content-scripts/content-script.js"],
+            "css":["src/content-scripts/style.css"]
           }
         }
       }

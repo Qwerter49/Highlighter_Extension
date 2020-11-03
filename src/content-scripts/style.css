@@ -1,0 +1,57 @@
+.editor {
+    position: fixed;
+    z-index: 1000;
+    bottom: 0;
+    right: 0;
+    height: 0;
+    overflow: visible;
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: nowrap;
+    align-items: flex-end;
+}
+.highlight-button {
+    width: 200px;
+    height: 200px;
+    transform: rotate(225deg);
+    position: relative;
+    top: 9rem;
+    left: 4rem;
+    transition-duration: 0.5s;
+}
+.highlightClicked {
+    width: 200px;
+    height: 200px;
+    transform: rotate(225deg);
+    position: relative;
+    top: 5rem;
+    left: 4rem;
+    transition-duration: 0.5s;
+}
+.highlight-button:hover {
+    top: 3rem;
+    transition-duration: 0.5s;
+}
+
+.eraser-button {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    top: 8rem;
+    transition-duration: 0.5s;
+}
+.eraser-button:hover {
+    top: 3rem;
+    transition-duration: 0.5s;
+}
+.eraserClicked {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    top: 4rem;
+    transition-duration: 0.5s;
+}
+.snippit {
+    display: inline;
+    background-color: yellow;
+}
