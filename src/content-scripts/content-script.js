@@ -1,4 +1,3 @@
-let edits = []
 let isHighlighterSelected = false
 let isEditorActive = false
 const optionsContainer = document.createElement("div")
@@ -115,11 +114,18 @@ function unHighlightText(){
 }
 
 function savePage(){
-    let snippits = document.querySelectorAll('.snippit')
-    snippits.forEach(snippit => {
-        if(snippit.textContent.length > 1){
-            edits.push(snippit)
-        }
+    chrome.runtime.sendMessage("get url", function(response){
+        let savedEdits = []
+        let snippits = document.querySelectorAll('.snippit')
+        snippits.forEach(snippit => {
+            if(snippit.textContent.length > 1){
+                let oneEdit = {text: snippit.textContent, parentTag: snippit.parentElement.tagName.toLowerCase()}
+                savedEdits.push(oneEdit)
+            }
+        })
+        chrome.storage.sync.set({[response]: savedEdits}, function(){
+            console.log('Chrome synced your data')
+        })
+        console.log(savedEdits)
     })
-    console.log(edits)
 }

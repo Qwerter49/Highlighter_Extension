@@ -1,7 +1,6 @@
 <template>
   <div>
-    <button @click="highlightHandler">Highlight!</button>
-    <button @click="cancelHighlight">Stop!</button>
+    <button @click="checkStorage">Check Storage</button>
   </div>
 </template>
 
@@ -10,14 +9,9 @@
 export default {
   name: "HighlightButton",
   methods: {
-    cancelHighlight: function(){
-      chrome.tabs.query({active: true, currentWindow: true}, function(tabs){
-        chrome.tabs.sendMessage(tabs[0].id, {text: "stop"});
-      })
-    },
-    highlightHandler: function() {
-      chrome.tabs.query({active: true, currentWindow: true}, function(tabs){
-        chrome.tabs.sendMessage(tabs[0].id, {text: "go select some text to highlight"});
+    checkStorage: function(){
+      chrome.storage.sync.get(['https://en.wikipedia.org/wiki/Existentialism#cite_note-Robert_C._Solomon_1974,_pp._1-4'], function(result){
+        console.log(result)
       })
     }
   }
