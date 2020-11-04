@@ -1,3 +1,9 @@
+if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', afterDOMloaded)
+} else {
+    afterDOMloaded()
+}
+
 let isHighlighterSelected = false
 let isEditorActive = false
 const optionsContainer = document.createElement("div")
@@ -15,6 +21,28 @@ optionsContainer.className = "editor"
 optionsContainer.append(eraserButton, highlightImage, saveButtonContainer)
 document.body.append(optionsContainer)
 optionsContainer.style.visibility = "hidden"
+highlightImage.addEventListener('click', toggleHighlight)
+eraserButton.addEventListener('click', toggleEraser)
+saveButton.addEventListener('click', savePage)
+
+function afterDOMloaded(){
+    chrome.runtime.sendMessage("get url", function(response){
+        chrome.storage.sync.get([response], function(result){
+            if(result[response]){
+                result[response].forEach(edit => {
+                    document.querySelectorAll(edit.parentTag).forEach(potentialParent => {
+                        if(potentialParent.textContent.includes(edit.text)){
+                            const highlight = `<div class="snippit">${edit.text}</div>`
+                            potentialParent.innerHTML = potentialParent.innerHTML.replace(edit.text, highlight)
+                        }
+                    })
+                })
+            }
+        })
+    })
+}
+
+
 
 chrome.runtime.onMessage.addListener(
     function(request){
@@ -61,13 +89,6 @@ function toggleEraser(){
         document.onmouseup = null
     }
 }
-
-
-highlightImage.addEventListener('click', toggleHighlight)
-eraserButton.addEventListener('click', toggleEraser)
-saveButton.addEventListener('click', savePage)
-
-
 
 function highlightText(){
     if (window.getSelection().anchorOffset > 0 && window.getSelection().extentOffset > 0 ) {

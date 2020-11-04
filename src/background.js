@@ -6,7 +6,6 @@ chrome.runtime.onInstalled.addListener(
   }
 )
 
-
 chrome.commands.onCommand.addListener(
   function(command) {
     if(command === "toggle-highlight"){
