@@ -1,20 +1,33 @@
 <template>
-  <highlightButton />
+  <main>
+    <header class="content-switcher">
+      <h3>Contacts</h3>
+      <h3>Notifications</h3>
+    </header>
+    <div class="contact-card-container">
+      <div class="contact-card">
+        <h5>Jay Oliver</h5>
+      </div>
+    </div>
+  </main>
 </template>
 
 <script>
-import HighlightButton from "@/components/HighlightButton.vue";
 
 export default {
   name: "App",
-  components: { HighlightButton },
+  components: {  },
 };
 
 </script>
 
 <style>
 html {
-  width: 150px;
-  height: 50px;
+  width: 250px;
+  height: 350px;
+}
+.content-switcher {
+  display: flex;
+  justify-content: space-evenly;
 }
 </style>

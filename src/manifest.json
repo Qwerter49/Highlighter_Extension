@@ -1,9 +1,9 @@
 {
   "manifest_version": 2,
-  "name": "__MSG_extName__",
+  "name": "inContext",
   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAkCXvpzMpT7z/H1267BluZYX/WK9lvxJ7VSCN7zgaTR0ZEWA46DcxCpqwDFFbmJeb68OP/OHosc8aFDhRksaGhg+c/qUO9S9yJM5/uFM1hEv0la+2UIU4HtMX5y7VHqiNvr9+nx7TE1LuU70wAOigd7yB8vDmIDxtBuQtv1qrhvFVhkDjwZPVW/f8GIS4o+7aG2+PCo/VQGmYwhg6CZ3B2B84f+wV3Y8Xejgul+sQaS7pmuvK/Joq90JNKjIJ+F0SyqlgrF5umckPWcxcdmUfngTQmFOym2okk4Ivu6eZj6yNAWbNQw244vZGdTTpJLRRKVzUShhXIBId5eyOK08G6QIDAQAB",
   "homepage_url": "http://localhost:8080/",
-  "description": "A Vue Browser Extension",
+  "description": "A browser extension for highlighting websites",
   "default_locale": "en",
   "oauth2": {
     "client_id": "25227820849-0hipvn5m85jh0evo5kh04ui0m80du5dn.apps.googleusercontent.com",
@@ -28,9 +28,9 @@
     }
   },
   "icons": {
-    "16": "icons/16.png",
-    "48": "icons/48.png",
-    "128": "icons/128.png"
+    "16": "icons/inContext_small_logo.png",
+    "48": "icons/inContext_small_logo.png",
+    "128": "icons/inContext_small_logo.png"
   },
   "background": {
     "scripts": [
@@ -42,15 +42,15 @@
     {
       "matches": ["<all_urls>"],
       "js": ["./js/content-script.js"],
-      "css": ["./css/css.b45a8b66.css"]
+      "css": ["./css/css.c50ccdb2.css"]
     }
   ],
   "browser_action": {
     "default_popup": "popup.html",
-    "default_title": "__MSG_extName__",
+    "default_title": "inContext",
     "default_icon": {
-      "19": "icons/19.png",
-      "38": "icons/38.png"
+      "19": "icons/inContext_small_logo.png",
+      "38": "icons/inContext_small_logo.png"
     }
   }
 }

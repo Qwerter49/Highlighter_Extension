@@ -8,8 +8,10 @@ let isHighlighterSelected = false
 let isEditorActive = false
 const optionsContainer = document.createElement("div")
 const saveButtonContainer = document.createElement("div")
-const saveButton = document.createElement("button")
-saveButton.textContent = "SAVE"
+saveButtonContainer.className = "save-button-container"
+const saveButton = document.createElement("img")
+saveButton.src = "https://www.flaticon.com/svg/static/icons/svg/633/633735.svg"
+saveButton.className = "save-button"
 const highlightImage = document.createElement('img')
 highlightImage.className = "highlight-button"
 highlightImage.src = 'https://www.flaticon.com/svg/static/icons/svg/544/544319.svg'
@@ -18,9 +20,10 @@ eraserButton.className = 'eraser-button'
 eraserButton.src = 'https://www.flaticon.com/svg/static/icons/svg/1046/1046352.svg'
 saveButtonContainer.append(saveButton)
 optionsContainer.className = "editor"
-optionsContainer.append(eraserButton, highlightImage, saveButtonContainer)
-document.body.append(optionsContainer)
+optionsContainer.append(eraserButton, highlightImage)
+document.body.append(optionsContainer, saveButtonContainer)
 optionsContainer.style.visibility = "hidden"
+saveButtonContainer.style.visibility = "hidden"
 highlightImage.addEventListener('click', toggleHighlight)
 eraserButton.addEventListener('click', toggleEraser)
 saveButton.addEventListener('click', savePage)
@@ -56,8 +59,10 @@ chrome.runtime.onMessage.addListener(
 function editorSwitcher(){
     if(isEditorActive){
         optionsContainer.style.visibility = "visible"
+        saveButtonContainer.style.visibility = "visible"
     } else {
         optionsContainer.style.visibility = "hidden"
+        saveButtonContainer.style.visibility = "hidden"
     }
 }
 
@@ -106,21 +111,22 @@ function highlightText(){
         //         } else
                 parent = window.getSelection().anchorNode.parentElement;
                 text = window.getSelection().toString();
-            if(window.getSelection().anchorNode.parentElement !== window.getSelection().extentNode.parentElement){
-                let firstText = window.getSelection().anchorNode.data.slice(window.getSelection().anchorOffset)
-                let secondText =  window.getSelection().extentNode.data.slice(0, window.getSelection().extentOffset)
-                console.log({firstText: firstText, secondText: secondText})
-                let firstParent = window.getSelection().anchorNode.parentElement
-                let secondParent = window.getSelection().extentNode.parentElement
-                console.log({firstParent: firstParent, secondParent: secondParent})
-                const firstSnippit = `<div class="snippit">${firstText}</div>`
-                const secondSnippit = `<div class="snippit">${secondText}</div>`
-                firstParent.innerHTML = firstParent.innerHTML.replace(firstText, firstSnippit)
-                secondParent.outerHTML = secondParent.outerHTML.replace(secondText, secondSnippit)
-            } else {
+            // if(window.getSelection().anchorNode.parentElement !== window.getSelection().extentNode.parentElement){
+            //     let firstText = window.getSelection().anchorNode.data.slice(window.getSelection().anchorOffset)
+            //     let secondText =  window.getSelection().extentNode.data.slice(0, window.getSelection().extentOffset)
+            //     console.log({firstText: firstText, secondText: secondText})
+            //     let firstParent = window.getSelection().anchorNode.parentElement
+            //     let secondParent = window.getSelection().extentNode.parentElement
+            //     console.log({firstParent: firstParent, secondParent: secondParent})
+            //     const firstSnippit = `<div class="snippit">${firstText}</div>`
+            //     const secondSnippit = `<div class="snippit">${secondText}</div>`
+            //     firstParent.innerHTML = firstParent.innerHTML.replace(firstText, firstSnippit)
+            //     secondParent.outerHTML = secondParent.outerHTML.replace(secondText, secondSnippit)
+            // } else
+            //  {
                 const highlight = `<div class="snippit">${text}</div>`
                 parent.innerHTML = parent.innerHTML.replace(text, highlight)
-            }
+            // }
     }
 }
 
@@ -145,7 +151,7 @@ function savePage(){
             }
         })
         chrome.storage.sync.set({[response]: savedEdits}, function(){
-            console.log('Chrome synced your data')
+            alert("Page has been saved!")
         })
         console.log(savedEdits)
     })
