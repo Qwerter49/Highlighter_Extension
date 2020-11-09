@@ -9,6 +9,7 @@
     flex-direction: row-reverse;
     flex-wrap: nowrap;
     align-items: flex-end;
+    transition-duration: 0.5s;
 }
 .highlight-button {
     width: 200px;
@@ -75,5 +76,9 @@
     justify-content: center;
     align-items: center;
     border-radius: 35px;
+    transition-duration: 0.5s;
+}
+.hiding {
+    bottom: -100px;
     transition-duration: 0.5s;
 }

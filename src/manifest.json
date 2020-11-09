@@ -7,12 +7,16 @@
   "default_locale": "en",
   "oauth2": {
     "client_id": "25227820849-0hipvn5m85jh0evo5kh04ui0m80du5dn.apps.googleusercontent.com",
-    "scopes": ["https://www.googleapis.com/auth/userinfo.profile"]
+    "scopes": [
+      "https://www.googleapis.com/auth/userinfo.profile",
+      "https://www.googleapis.com/auth/contacts.readonly"
+    ]
   },
   "permissions": [
     "storage",
     "tabs",
     "identity",
+    "identity.email",
     "activeTab",
     "<all_urls>",
     "*://*/*"
@@ -28,9 +32,9 @@
     }
   },
   "icons": {
-    "16": "icons/inContext_small_logo.png",
-    "48": "icons/inContext_small_logo.png",
-    "128": "icons/inContext_small_logo.png"
+    "16": "icons/inContext_small_i.png",
+    "48": "icons/inContext_small_i.png",
+    "128": "icons/inContext_small_i.png"
   },
   "background": {
     "scripts": [
@@ -42,15 +46,15 @@
     {
       "matches": ["<all_urls>"],
       "js": ["./js/content-script.js"],
-      "css": ["./css/css.c50ccdb2.css"]
+      "css": ["./css/css.cdc607f1.css"]
     }
   ],
   "browser_action": {
     "default_popup": "popup.html",
     "default_title": "inContext",
     "default_icon": {
-      "19": "icons/inContext_small_logo.png",
-      "38": "icons/inContext_small_logo.png"
+      "19": "icons/inContext_small_i.png",
+      "38": "icons/inContext_small_i.png"
     }
   }
 }

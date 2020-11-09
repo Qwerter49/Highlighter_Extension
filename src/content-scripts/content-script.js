@@ -22,8 +22,8 @@ saveButtonContainer.append(saveButton)
 optionsContainer.className = "editor"
 optionsContainer.append(eraserButton, highlightImage)
 document.body.append(optionsContainer, saveButtonContainer)
-optionsContainer.style.visibility = "hidden"
-saveButtonContainer.style.visibility = "hidden"
+optionsContainer.classList.add("hiding")
+saveButtonContainer.classList.add("hiding")
 highlightImage.addEventListener('click', toggleHighlight)
 eraserButton.addEventListener('click', toggleEraser)
 saveButton.addEventListener('click', savePage)
@@ -58,11 +58,15 @@ chrome.runtime.onMessage.addListener(
 
 function editorSwitcher(){
     if(isEditorActive){
-        optionsContainer.style.visibility = "visible"
-        saveButtonContainer.style.visibility = "visible"
+        saveButtonContainer.classList.remove("hiding")
+        optionsContainer.classList.remove("hiding")
+        eraserButton.classList.remove("hiding")
+        highlightImage.classList.remove("hiding")
     } else {
-        optionsContainer.style.visibility = "hidden"
-        saveButtonContainer.style.visibility = "hidden"
+        saveButtonContainer.classList.add("hiding")
+        optionsContainer.classList.add("hiding")
+        eraserButton.classList.add("hiding")
+        highlightImage.classList.add("hiding")
     }
 }
 

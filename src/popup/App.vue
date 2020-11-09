@@ -1,22 +1,90 @@
 <template>
   <main>
-    <header class="content-switcher">
-      <h3>Contacts</h3>
-      <h3>Notifications</h3>
-    </header>
-    <div class="contact-card-container">
-      <div class="contact-card">
-        <h5>Jay Oliver</h5>
+    <nav id="tab-nav">
+      <span class="contacts-tab tabnav" @click="showContacts">
+        <h3>Contacts</h3>
+      </span>
+      <span class="notifications-tab tabnav" @click="showNotifications">
+        <h3>Notifications</h3>
+      </span>
+    </nav>
+      <!-- <ContactCardContainer :listOfContacts="this.listOfContacts"/> -->
+      <div v-show="this.displayedContent === 'contacts'">
+        <ContactCardContainer :listOfContacts="this.listOfContacts"/>
       </div>
-    </div>
+      <div v-show="this.displayedContent === 'notifications'">
+        <NotificationCardContainer :listOfNotifications="this.listOfNotifications" />
+      </div>
   </main>
 </template>
 
 <script>
+import ContactCardContainer from '@/components/ContactCardContainer.vue'
+import NotificationCardContainer from '@/components/NotificationCardContainer.vue'
+
 
 export default {
   name: "App",
-  components: {  },
+  components: { ContactCardContainer, NotificationCardContainer },
+  methods: {
+    showContacts: function(){
+      this.displayedContent = 'contacts';
+    },
+    showNotifications: function(){
+      this.displayedContent = 'notifications'
+    },
+    fetchContacts: function(){
+      chrome.identity.getAuthToken({interactive: true}, (token)  => {
+        let init = {
+          method: 'GET',
+          async: true,
+          headers: {
+            Authorization: 'Bearer ' + token,
+            "Content-Type": 'application/json'
+          },
+          'contentType': 'json'
+        };
+        fetch(
+          'https://people.googleapis.com/v1/people/me/connections?personFields=names,photos,emailAddresses&key=AIzaSyBmrDB7rvy7650gH-VTu9BroglvhjOBooI',
+          init)
+          .then((response) => response.json())
+          .then((results) => {
+            this.listOfContacts = results.connections
+          })
+      })
+    },
+    fetchNotifications: function(){
+      chrome.identity.getProfileUserInfo( (userInfo) => {     
+        const email = {email: userInfo.email}
+        // console.log(email)
+        let init = {
+            method: 'POST',
+            async: true,
+            headers: {
+                "Content-Type": 'application/json'
+            },
+            body: JSON.stringify(email),
+            'contentType': 'json'
+            };
+            fetch("https://in-context-backend.herokuapp.com/shared-messages", init)
+              .then(response => response.json())
+              .then(results => {
+                this.listOfNotifications = results
+              })
+      })
+    }
+  },
+  data(){
+    return {
+      listOfContacts: [],
+      listOfNotifications: [],
+      displayedContent: "notifications"
+    }
+  },
+  mounted(){
+    this.fetchContacts();
+    this.fetchNotifications();
+  }
 };
 
 </script>
@@ -25,9 +93,22 @@ export default {
 html {
   width: 250px;
   height: 350px;
+  background-color: #A8DCF0;
 }
-.content-switcher {
+#tab-nav {
   display: flex;
   justify-content: space-evenly;
+  background-color: #7b38d8;
+  margin: -9px;
+  margin-bottom: 5px;
 }
+#tab-nav span.tabnav {
+  color: #fff;
+  cursor: pointer;
+}
+#tab-nav h3 {
+  color: #D6B927;
+}
+
+
 </style>
