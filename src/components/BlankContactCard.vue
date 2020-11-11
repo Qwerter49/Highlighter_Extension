@@ -1,5 +1,5 @@
 <template>
-    <div class="contact-card card">
+    <div class="contact-card card blank-card">
         <h2>No Contacts!</h2>
         <h4>Add a friend in Google Contacts</h4>
         <h4>Make sure Chrome Sync is enabled</h4>
