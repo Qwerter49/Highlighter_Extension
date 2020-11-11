@@ -45,7 +45,7 @@ export default {
           'contentType': 'json'
         };
         fetch(
-          'https://people.googleapis.com/v1/people/me/connections?personFields=names,photos,emailAddresses&key=AIzaSyBmrDB7rvy7650gH-VTu9BroglvhjOBooI',
+          `https://people.googleapis.com/v1/people/me/connections?personFields=names,photos,emailAddresses&key=${process.env.VUE_APP_APIKEY}`,
           init)
           .then((response) => response.json())
           .then((results) => {
