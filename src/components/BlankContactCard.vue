@@ -16,6 +16,7 @@ export default {
 .blank-card {
     height: 200px;
     text-align: center;
+    flex-direction: column;
 }
 
 </style>
