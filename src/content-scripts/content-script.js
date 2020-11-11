@@ -4,16 +4,6 @@ if(document.readyState === 'loading'){
     afterDOMloaded();
 }
 
-// window.onload = function(){
-//     const aSnippit = document.querySelector(".snippit");
-//     console.log(aSnippit)
-//     // .scrollIntoView({
-//     //     behavior: "smooth",
-//     //     block: "start",
-//     //     inline: "nearest"
-//     // });
-// }
-
 let isHighlighterSelected = false
 let isEditorActive = false
 const optionsContainer = document.createElement("div")
@@ -44,8 +34,8 @@ function afterDOMloaded(){
             if(result[response]){
                 result[response].forEach(edit => {
                     document.querySelectorAll(edit.parentTag).forEach(potentialParent => {
-                        if(potentialParent.textContent.includes(edit.text)){
-                            const highlight = `<div class="snippit">${edit.text}</div>`
+                        if(potentialParent.innerHTML.includes(edit.text)){
+                            const highlight = `<span class="snippit">${edit.text}</span>`
                             potentialParent.innerHTML = potentialParent.innerHTML.replace(edit.text, highlight)
                         }
                     })
@@ -53,7 +43,7 @@ function afterDOMloaded(){
                 const aSnippit = document.querySelector(".snippit");
                 aSnippit.scrollIntoView({
                     behavior: "smooth",
-                    block: "start",
+                    block: "center",
                     inline: "nearest"
                 });
             }
@@ -114,37 +104,14 @@ function toggleEraser(){
 }
 
 function highlightText(){
-    if (window.getSelection().anchorOffset > 0 && window.getSelection().extentOffset > 0 ) {
-        let text = "";
-        let parent;
-        let activeEl = document.activeElement;
-                let activeElTagName = activeEl ? activeEl.tagName.toLowerCase() : null;
-                if (
-                    (activeElTagName == "textarea") 
-                    ||
-                    (activeElTagName == "input" && /^(?:text|search|password|tel|url)$/i.test(activeEl.type)) && (typeof activeEl.selectionStart == "number")
-                ) {
-                    parent = activeEl
-                    text = activeEl.value.slice(activeEl.selectionStart, activeEl.selectionEnd);
-                } else
-                parent = window.getSelection().anchorNode.parentElement;
-                text = window.getSelection().toString();
-            if(window.getSelection().anchorNode.parentElement !== window.getSelection().extentNode.parentElement){
-                let firstText = window.getSelection().anchorNode.data.slice(window.getSelection().anchorOffset)
-                let secondText =  window.getSelection().extentNode.data.slice(0, window.getSelection().extentOffset)
-                console.log({firstText: firstText, secondText: secondText})
-                let firstParent = window.getSelection().anchorNode.parentElement
-                let secondParent = window.getSelection().extentNode.parentElement
-                console.log({firstParent: firstParent, secondParent: secondParent})
-                const firstSnippit = `<div class="snippit">${firstText}</div>`
-                const secondSnippit = `<div class="snippit">${secondText}</div>`
-                firstParent.innerHTML = firstParent.innerHTML.replace(firstText, firstSnippit)
-                secondParent.outerHTML = secondParent.outerHTML.replace(secondText, secondSnippit)
-            } else
-             {
-                const highlight = `<div class="snippit">${text}</div>`
-                parent.innerHTML = parent.innerHTML.replace(text, highlight)
-            }
+    if (window.getSelection().toString().length !== 0 ) {
+        let range = window.getSelection().getRangeAt(0)
+        let selectionContents = range.extractContents()
+        const highlight = document.createElement('span')
+        highlight.classList.add('snippit')
+        highlight.appendChild(selectionContents)
+        range.insertNode(highlight)
+        window.getSelection().empty()
     }
 }
 
@@ -164,13 +131,12 @@ function savePage(){
         let snippits = document.querySelectorAll('.snippit')
         snippits.forEach(snippit => {
             if(snippit.textContent.length > 1){
-                let oneEdit = {text: snippit.textContent, parentTag: snippit.parentElement.tagName.toLowerCase()}
+                let oneEdit = {text: snippit.innerHTML, parentTag: snippit.parentElement.tagName.toLowerCase()}
                 savedEdits.push(oneEdit)
             }
         })
         chrome.storage.sync.set({[response]: savedEdits}, function(){
             alert("Page has been saved!")
         })
-        console.log(savedEdits)
     })
 }
