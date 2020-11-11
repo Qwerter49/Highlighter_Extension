@@ -13,6 +13,7 @@
     ]
   },
   "permissions": [
+    "notifications",
     "storage",
     "tabs",
     "identity",
@@ -46,7 +47,7 @@
     {
       "matches": ["<all_urls>"],
       "js": ["./js/content-script.js"],
-      "css": ["./css/css.cdc607f1.css"]
+      "css": ["./css/css.8c2e540b.css"]
     }
   ],
   "browser_action": {

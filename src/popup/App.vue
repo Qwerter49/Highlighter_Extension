@@ -9,9 +9,9 @@
       </span>
     </nav>
       <!-- <ContactCardContainer :listOfContacts="this.listOfContacts"/> -->
-      <div v-show="this.displayedContent === 'contacts'">
-        <ContactCardContainer :listOfContacts="this.listOfContacts"/>
-      </div>
+      <!-- <div v-show="this.displayedContent === 'contacts'"> -->
+        <ContactCardContainer v-show="this.displayedContent === 'contacts'" :listOfContacts="this.listOfContacts"/>
+      <!-- </div> -->
       <div v-show="this.displayedContent === 'notifications'">
         <NotificationCardContainer :listOfNotifications="this.listOfNotifications" />
       </div>
@@ -56,7 +56,6 @@ export default {
     fetchNotifications: function(){
       chrome.identity.getProfileUserInfo( (userInfo) => {     
         const email = {email: userInfo.email}
-        // console.log(email)
         let init = {
             method: 'POST',
             async: true,
@@ -70,6 +69,10 @@ export default {
               .then(response => response.json())
               .then(results => {
                 this.listOfNotifications = results
+                if(this.listOfNotifications.length > 0){
+                  chrome.browserAction.setBadgeText({text: this.listOfNotifications.length.toString()})
+                  chrome.browserAction.setBadgeBackgroundColor({color: '#FF0000'})
+                }
               })
       })
     }
@@ -92,8 +95,8 @@ export default {
 <style>
 html {
   width: 250px;
-  height: 350px;
-  background-color: #A8DCF0;
+  height: 250px;
+  background-color: #78b7d2;
 }
 #tab-nav {
   display: flex;
@@ -107,8 +110,24 @@ html {
   cursor: pointer;
 }
 #tab-nav h3 {
-  color: #D6B927;
+  color: #f6d83e;
 }
+::-webkit-scrollbar {
+    width: 5px;
+}
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #7b38d8;
+    border-radius: 20px;
+    border: -4px solid transparent;
+    background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color: #a8bbbf;
+}
+
 
 
 </style>

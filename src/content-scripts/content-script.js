@@ -1,8 +1,18 @@
 if(document.readyState === 'loading'){
     document.addEventListener('DOMContentLoaded', afterDOMloaded)
 } else {
-    afterDOMloaded()
+    afterDOMloaded();
 }
+
+// window.onload = function(){
+//     const aSnippit = document.querySelector(".snippit");
+//     console.log(aSnippit)
+//     // .scrollIntoView({
+//     //     behavior: "smooth",
+//     //     block: "start",
+//     //     inline: "nearest"
+//     // });
+// }
 
 let isHighlighterSelected = false
 let isEditorActive = false
@@ -40,12 +50,16 @@ function afterDOMloaded(){
                         }
                     })
                 })
+                const aSnippit = document.querySelector(".snippit");
+                aSnippit.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start",
+                    inline: "nearest"
+                });
             }
         })
     })
 }
-
-
 
 chrome.runtime.onMessage.addListener(
     function(request){
@@ -103,34 +117,34 @@ function highlightText(){
     if (window.getSelection().anchorOffset > 0 && window.getSelection().extentOffset > 0 ) {
         let text = "";
         let parent;
-        // let activeEl = document.activeElement;
-        //         let activeElTagName = activeEl ? activeEl.tagName.toLowerCase() : null;
-        //         if (
-        //             (activeElTagName == "textarea") 
-        //             ||
-        //             (activeElTagName == "input" && /^(?:text|search|password|tel|url)$/i.test(activeEl.type)) && (typeof activeEl.selectionStart == "number")
-        //         ) {
-        //             parent = activeEl
-        //             text = activeEl.value.slice(activeEl.selectionStart, activeEl.selectionEnd);
-        //         } else
+        let activeEl = document.activeElement;
+                let activeElTagName = activeEl ? activeEl.tagName.toLowerCase() : null;
+                if (
+                    (activeElTagName == "textarea") 
+                    ||
+                    (activeElTagName == "input" && /^(?:text|search|password|tel|url)$/i.test(activeEl.type)) && (typeof activeEl.selectionStart == "number")
+                ) {
+                    parent = activeEl
+                    text = activeEl.value.slice(activeEl.selectionStart, activeEl.selectionEnd);
+                } else
                 parent = window.getSelection().anchorNode.parentElement;
                 text = window.getSelection().toString();
-            // if(window.getSelection().anchorNode.parentElement !== window.getSelection().extentNode.parentElement){
-            //     let firstText = window.getSelection().anchorNode.data.slice(window.getSelection().anchorOffset)
-            //     let secondText =  window.getSelection().extentNode.data.slice(0, window.getSelection().extentOffset)
-            //     console.log({firstText: firstText, secondText: secondText})
-            //     let firstParent = window.getSelection().anchorNode.parentElement
-            //     let secondParent = window.getSelection().extentNode.parentElement
-            //     console.log({firstParent: firstParent, secondParent: secondParent})
-            //     const firstSnippit = `<div class="snippit">${firstText}</div>`
-            //     const secondSnippit = `<div class="snippit">${secondText}</div>`
-            //     firstParent.innerHTML = firstParent.innerHTML.replace(firstText, firstSnippit)
-            //     secondParent.outerHTML = secondParent.outerHTML.replace(secondText, secondSnippit)
-            // } else
-            //  {
+            if(window.getSelection().anchorNode.parentElement !== window.getSelection().extentNode.parentElement){
+                let firstText = window.getSelection().anchorNode.data.slice(window.getSelection().anchorOffset)
+                let secondText =  window.getSelection().extentNode.data.slice(0, window.getSelection().extentOffset)
+                console.log({firstText: firstText, secondText: secondText})
+                let firstParent = window.getSelection().anchorNode.parentElement
+                let secondParent = window.getSelection().extentNode.parentElement
+                console.log({firstParent: firstParent, secondParent: secondParent})
+                const firstSnippit = `<div class="snippit">${firstText}</div>`
+                const secondSnippit = `<div class="snippit">${secondText}</div>`
+                firstParent.innerHTML = firstParent.innerHTML.replace(firstText, firstSnippit)
+                secondParent.outerHTML = secondParent.outerHTML.replace(secondText, secondSnippit)
+            } else
+             {
                 const highlight = `<div class="snippit">${text}</div>`
                 parent.innerHTML = parent.innerHTML.replace(text, highlight)
-            // }
+            }
     }
 }
 

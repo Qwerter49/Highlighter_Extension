@@ -1,9 +1,12 @@
 <template>
-    <main id="cards-container">
+    <div v-if="listOfContacts.length > 0" id="cards-container">
         <div v-for="singleContact in listOfContacts" :key="singleContact">
             <ContactCard :contact="singleContact"/>
         </div>
-    </main>
+    </div>
+    <div v-else>
+        <h2>No contacts to display!</h2>
+    </div>
 </template>
 
 <script>
@@ -21,8 +24,8 @@ export default {
 
 <style>
 #cards-container {
-    height: 100%;
-    width: 100%;
+    height: 350px;
+    overflow: overlay;
+    padding-right: 8px;
 }
-
 </style>

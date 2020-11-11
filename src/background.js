@@ -1,6 +1,5 @@
-// chrome.runtime.onInstalled.addListener(
-  
-// )
+// let amountOfNotifications = 0
+
 
 chrome.commands.onCommand.addListener(
   function(command) {
@@ -23,3 +22,11 @@ chrome.runtime.onMessage.addListener(
     return true;
   }
 )
+
+// chrome.runtime.onMessage.addListener(
+//   function(request, sender, sendResponse){
+//     if(request.message === "update notifications"){
+
+//     }
+//   }
+// )

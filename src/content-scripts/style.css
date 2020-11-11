@@ -11,6 +11,7 @@
     align-items: flex-end;
     transition-duration: 0.5s;
 }
+
 .highlight-button {
     width: 200px;
     height: 200px;
@@ -79,6 +80,6 @@
     transition-duration: 0.5s;
 }
 .hiding {
-    bottom: -100px;
+    bottom: -400px;
     transition-duration: 0.5s;
 }

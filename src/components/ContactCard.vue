@@ -1,9 +1,9 @@
 <template>
-    <div class="contact-card">
+    <div class="contact-card card">
         <img :src="this.contact.photos[0].url" alt="photo">
         <div class="right-of-image">
         <h3>{{this.contact.names[0].displayName}}</h3>
-        <button @click="sendPage">Send Context</button>
+        <button class="send-button" @click="sendPage">Send Context</button>
         </div>
     </div>
 </template>
@@ -32,6 +32,7 @@ export default {
                             'contentType': 'json'
                             };
                             fetch("https://in-context-backend.herokuapp.com/send-site", init)
+                            alert(`Sent website to ${this.contact.names[0].displayName}`)
                     })
                 })
             })
@@ -49,7 +50,7 @@ export default {
     flex-direction: row;
     margin: 10px;
     justify-content: space-evenly;
-    background-color: #FAE8EB;
+    background-color: #f6d83e;
     padding: 5px;
     box-shadow: 1px 1px 5px 1px black;
 }
@@ -63,7 +64,7 @@ img {
     align-items: center;
     padding-left: 20px;
 }
-button {
+.send-button {
     border-radius: 10px;
     border: 4px  #cccccc;
     color: #eeeeee;
@@ -75,7 +76,7 @@ button {
     padding-left: 9px;
     padding-right: 10px;
 }
-button:hover {
+.send-button:hover {
     background-color: #f7c2f9;
 }
 
