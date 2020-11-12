@@ -7,10 +7,6 @@
 Backend respository: (https://github.com/Qwerter49/in-context-backend)
 <br>[Demo Video](Add video link here)
 
-## Built With
-Frontend: Web Extension API's, Vue for popup <br>
-Backend: Node, Express, Objection for replationships. 
-
 ## How to Set Up
 inContext is undergoing the review process in the Chrome Web Store, until it is available, follow these steps.<br>
 Clone down the repo to your local machine <br>
@@ -34,13 +30,15 @@ Once everything important is highlighted click the save button to keep it on ref
 If a friend needs the website, click on the inContext icon in the top right in your browser bar, go to contacts, and press "Send Context"<br><br>
 ![Send Context](https://media.giphy.com/media/671CVikg8GTjPylYLn/giphy.gif)
 
+## Built With
+Frontend: Web Extension API's, Vue for popup <br>
+Backend: Node, Express, Objection for replationships. 
 
 ## Challenges
 
 The first big challenge was finding a way to add a javascript framework to an extension popup while still being able to develop content scripts/background scripts. I started with create-react-app, realized that was way too big, and tried multiple ways of custom building a react app with Parcel. Eventually I found vue-cli-plugin-web-extension which did most of the heavy lifting for me, it just required learning Vue halfway through the project. I still had to customize the webpack configuration to get my CSS files to build properly.
 
 The other challenge was making an extension that worked on most sites no matter what kind of element or elements the text was in. Firefox still has some issues, but it will be implemented soon!
-
 
 ## Known Bugs
  - Highlights in code snippits will not save on refresh
