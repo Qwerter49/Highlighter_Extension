@@ -1,11 +1,15 @@
  ![inContext Logo](/public/icons/inContext_large.png)
+ ---
+ 
+ ## Description
+ inContext is a chrome extension that allows you to highlight any wepage, save that page for later viewing, and share the page with your Google Contacts. 
 
-Backend respository: Change this
+Backend respository: (https://github.com/Qwerter49/in-context-backend)
 <br>[Demo Video](Add video link here)
 
 ## Built With
 Frontend: Web Extension API's, Vue for popup <br>
-Backend: Node, Express, PostgreSQL
+Backend: Node, Express, Objection for replationships. 
 
 ## How to Set Up
 inContext is undergoing the review process in the Chrome Web Store, until it is available, follow these steps.<br>
