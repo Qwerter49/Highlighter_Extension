@@ -9,9 +9,9 @@ Frontend: Web Extension API's, Vue for popup <br>
 Backend: Node, Express, PostgreSQL
 
 ## How to Use
-inContext is undergoing the review process in the Chrome Web Store, until it is availabe, follow these steps.<br>
+inContext is undergoing the review process in the Chrome Web Store, until it is available, follow these steps.<br>
 Clone down the repo to your local machine <br>
-cd into the repository and run nom install <br>
+cd into the repository and run npm install <br>
 run npm run build to build the dist directory <br>
 In Google Chrome, type in chrome://extensions in your url and press enter <br>
 On the top right, click the toggle that says Developer Mode <br>
@@ -50,7 +50,7 @@ When a user is in an active party, they are directed to a restaurant card based 
 
 When a user likes a place that another user in the party has previously liked, a match notification will display for the user. The user can then view their party matches on the 'My Party' screen. An badge indicator will also display on the party icon in the upper-left with the number of matched places.
 
-![party-matches](https://res.cloudinary.com/kristine-and-samuel/image/upload/v1590701291/PICKYeats/match.gif)
+![party-matches](https://giphy.com/embed/XvENrZxERfG4ePYIgr)
 
 ## Challenges
 
