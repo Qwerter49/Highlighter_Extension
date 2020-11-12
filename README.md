@@ -10,13 +10,13 @@ Backend respository: (https://github.com/Qwerter49/in-context-backend)
 ## How to Set Up
 1. inContext is undergoing the review process in the Chrome Web Store, until it is available, follow these steps.<br>
 2. Clone down the repo to your local machine <br>
-3. cd into the repository and run npm install <br>
-4. run npm run build to build the dist directory <br>
+3. `cd` into the repository and run `npm install` <br>
+4. run `npm run build` to build the dist directory <br>
 5. In Google Chrome, type in chrome://extensions in your url and press enter <br>
 6. On the top right, click the toggle that says Developer Mode <br>
 7. Click on the button that says "load unpacked" <br>
 8. Navigate to where you cloned down inContext <br>
-9. Select the dist file <br>
+9. Select the `dist` file <br>
 10. inContext is now installed on your browser. 
 
 ## How to Use
