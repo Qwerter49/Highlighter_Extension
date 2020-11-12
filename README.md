@@ -1,5 +1,4 @@
-# inContext
- ![inContext Logo](/public/icons/inContext_large.png)
+ #![inContext Logo](/public/icons/inContext_large.png)
 
 Backend respository: Change this
 <br>[Demo Video](Add video link here)
