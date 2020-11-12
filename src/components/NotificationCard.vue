@@ -57,7 +57,7 @@ export default {
     justify-content: space-evenly;
     background-color: #f6d83e;
     padding: 5px;
-    box-shadow: 1px 1px 5px 1px black;
+    box-shadow: 4px 4px 9px -1px #000;
     position: relative;
 }
 .notification-button {
@@ -96,6 +96,7 @@ h4 {
     margin-top: 16px;
     padding-bottom: 9px;
     background-color: #f6d83e;
+    border-radius: 3px;
 }
 p {
     overflow-wrap: break-word;

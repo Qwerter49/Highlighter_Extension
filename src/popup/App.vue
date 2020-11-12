@@ -96,7 +96,7 @@ export default {
 html {
   width: 250px;
   height: 250px;
-  background-color: #78b7d2;
+  background-color: #c2a9e5;
 }
 #tab-nav {
   display: flex;
@@ -110,7 +110,7 @@ html {
   cursor: pointer;
 }
 #tab-nav h3 {
-  color: #f6d83e;
+  color: #ffe100;
 }
 ::-webkit-scrollbar {
     width: 5px;
