@@ -30,32 +30,20 @@ Once everything important is highlighted click the save button to keep it on ref
 If a friend needs the website, click on the inContext icon in the top right in your browser bar, go to contacts, and press "Send Context"<br><br>
 ![Send Context](https://media.giphy.com/media/671CVikg8GTjPylYLn/giphy.gif)
 
-## App Features
-
-### Start a Party
-
-On login/signup, users are directed to the 'Start a Party' by:
-1. Inputting a title
-2. Adding other users via a filter that displays data based on a match input of name, phone number, or email
-3. Inputting a location
-
-When these steps are completed, the party is marked as active, and others users will be able to view their party on login.
-
-
-### Like/Dislike and View Restaurant Details
-
-When a user is in an active party, they are directed to a restaurant card based on the location paramaters. A restaurant card displays an image and some information on load with like and dislike buttons for the user to make a decision. There is also an option to View More with additional images and information like reviews. 
-
-### Matching a Place & My Party screen
-
-When a user likes a place that another user in the party has previously liked, a match notification will display for the user. The user can then view their party matches on the 'My Party' screen. An badge indicator will also display on the party icon in the upper-left with the number of matched places.
-
 
 ## Challenges
 
-Implementing Redux for the first time, there was a learning curve associated with understanding when and how to use reducers and the dispatch method. I found that using hooks with Redux really simplified this process. With this app needing to hold a lot of different pieces of data, Redux ended up being very useful and easier to debug with React Native Debugger in order to see state in one place.
+The first big challenge was finding a way to add a javascript framework to an extension popup while still being able to develop content scripts/background scripts. I started with create-react-app, realized that was way too big, and tried multiple ways of custom building a react app with Parcel. Eventually I found vue-cli-plugin-web-extension which did most of the heavy lifting for me, it just required learning Vue halfway through the project. I still had to customize the webpack configuration to get my CSS files to build properly.
 
-On that note, the data modeling and logic to retrieve data for users added to a party and match restaurants for users in the party made the app pretty complex. The more features I added, the more I realized that I needed to create more APIs and routes for the data I needed to store and retrieve. With needed to check for a matched restaurant on every interaction, it was also difficult matching up the frontend state to data being saved. I needed to refactor a few times in order to get this to work properly.
+The other challenge was making an extension that worked on most sites no matter what kind of element or elements the text was in. Firefox still has some issues, but it will be implemented soon!
+
+
+## Known Bugs
+ - Highlights in code snippits will not save on refresh
+ - If contacts are not appearing, make sure Chrome Sync is enabled
+ - If website alters dramatically, refresh page before saving
+ - If anything stops working, press the refresh button on the chrome://extensions page
+ - Please let me know of any other found bugs
 
 ## Future Implementation
 
