@@ -8,26 +8,26 @@ Backend respository: (https://github.com/Qwerter49/in-context-backend)
 <br>[Demo Video](Add video link here)
 
 ## How to Set Up
-inContext is undergoing the review process in the Chrome Web Store, until it is available, follow these steps.<br>
-Clone down the repo to your local machine <br>
-cd into the repository and run npm install <br>
-run npm run build to build the dist directory <br>
-In Google Chrome, type in chrome://extensions in your url and press enter <br>
-On the top right, click the toggle that says Developer Mode <br>
-Click on the button that says "load unpacked" <br>
-Navigate to where you cloned down inContext <br>
-Select the dist file <br>
-inContext is now installed on your browser. 
+1. inContext is undergoing the review process in the Chrome Web Store, until it is available, follow these steps.<br>
+2. Clone down the repo to your local machine <br>
+3. cd into the repository and run npm install <br>
+4. run npm run build to build the dist directory <br>
+5. In Google Chrome, type in chrome://extensions in your url and press enter <br>
+6. On the top right, click the toggle that says Developer Mode <br>
+7. Click on the button that says "load unpacked" <br>
+8. Navigate to where you cloned down inContext <br>
+9. Select the dist file <br>
+10. inContext is now installed on your browser. 
 
 ## How to Use
-Make sure you are signed into a gmail account <br>
-Turn on Chrome Sync by pressing the icon on the top right of chrome and clicking "turn on sync" if it is off (this is required for contacts to appear) <br>
-Now, on any website, press Ctrl+Alt+H (Command+Alt+H for mac) to open the Editor menu <br><br>
+1. Make sure you are signed into a gmail account <br>
+2. Turn on Chrome Sync by pressing the icon on the top right of chrome and clicking "turn on sync" if it is off (this is required for contacts to appear) <br>
+3. Now, on any website, press Ctrl+Alt+H (Command+Alt+H for mac) to open the Editor menu <br><br>
 ![Highlight and Save](https://media.giphy.com/media/XvENrZxERfG4ePYIgr/giphy.gif)<br><br>
-Click on the Highlighter to highlight any text you'd like <br>
-If you make a mistake, use the Eraser to get rid of it! <br>
-Once everything important is highlighted click the save button to keep it on refresh <br>
-If a friend needs the website, click on the inContext icon in the top right in your browser bar, go to contacts, and press "Send Context"<br><br>
+4. Click on the Highlighter to highlight any text you'd like <br>
+5. If you make a mistake, use the Eraser to get rid of it! <br>
+6. Once everything important is highlighted click the save button to keep it on refresh <br>
+7. If a friend needs the website, click on the inContext icon in the top right in your browser bar, go to contacts, and press "Send Context"<br><br>
 ![Send Context](https://media.giphy.com/media/671CVikg8GTjPylYLn/giphy.gif)
 
 ## Built With
