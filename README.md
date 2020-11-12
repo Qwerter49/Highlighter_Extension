@@ -50,7 +50,7 @@ When a user is in an active party, they are directed to a restaurant card based 
 
 When a user likes a place that another user in the party has previously liked, a match notification will display for the user. The user can then view their party matches on the 'My Party' screen. An badge indicator will also display on the party icon in the upper-left with the number of matched places.
 
-![party-matches](https://giphy.com/embed/XvENrZxERfG4ePYIgr)
+![party-matches](https://giphy.com/gifs/XvENrZxERfG4ePYIgr/html5)
 
 ## Challenges
 
