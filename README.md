@@ -27,7 +27,7 @@ Now, on any website, press Ctrl+Alt+H (Command+Alt+H for mac) to open the Editor
 Click on the Highlighter to highlight any text you'd like <br>
 If you make a mistake, use the Eraser to get rid of it! <br>
 Once everything important is highlighted click the save button to keep it on refresh <br>
-If a friend needs the website, click on the inContext icon in the top right in your browser bar, go to contacts, and press "Send Context"<br>
+If a friend needs the website, click on the inContext icon in the top right in your browser bar, go to contacts, and press "Send Context"<br><br>
 ![Send Context](https://media.giphy.com/media/671CVikg8GTjPylYLn/giphy.gif)
 
 ## App Features
@@ -41,13 +41,10 @@ On login/signup, users are directed to the 'Start a Party' by:
 
 When these steps are completed, the party is marked as active, and others users will be able to view their party on login.
 
-![start-a-party](https://res.cloudinary.com/kristine-and-samuel/image/upload/v1590701050/PICKYeats/party.gif)
 
 ### Like/Dislike and View Restaurant Details
 
 When a user is in an active party, they are directed to a restaurant card based on the location paramaters. A restaurant card displays an image and some information on load with like and dislike buttons for the user to make a decision. There is also an option to View More with additional images and information like reviews. 
-
-![restaurants](https://res.cloudinary.com/kristine-and-samuel/image/upload/v1590701185/PICKYeats/restaurants.gif)
 
 ### Matching a Place & My Party screen
 
@@ -62,20 +59,14 @@ On that note, the data modeling and logic to retrieve data for users added to a 
 
 ## Future Implementation
 
-- Build and test for iOS
-- Add swipe animations
-- Add profile page and features
-- Implement additional match logic for parties with 2+ users
-
-## Collaboration
-
-1. Fork and/or clone this repo & the backend repo - https://github.com/kadrianne/pickyeats-backend
-2. Create PostgreSQL database `createdb pickyeats`
-3. Migrate database tables in backend: `python3 manage.py migrate`
-4. Run backend server: `python3 manage.py runserver`
-5. Install dependencies on frontend: `npm install`
-6. Run frontend server: `npx react-native run-android`
-7. Checkout new branch
+- Primary and Secondary Highlighter. Primary sets title of the sent link
+- Change color of highlighters
+- Delete all edits on a webpage
+- Delete all edits on your sync storage
+- NoShare mode
+- Firefox support
+- Full chat support in popup
+- See if a user has viewed your link
    
-I have a GitHub project board with a few backlog items here: https://github.com/kadrianne/pickyeats/projects/1<br>
-If you'd like to collaborate on this project, please email me: kristine.a.du@gmail.com
+
+If you'd like to collaborate on this project, please email me: jay.oliver.technologies@gmail.com
