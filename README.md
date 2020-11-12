@@ -23,8 +23,8 @@ inContext is now installed on your browser.
 ## How to Use
 Make sure you are signed into a gmail account <br>
 Turn on Chrome Sync by pressing the icon on the top right of chrome and clicking "turn on sync" if it is off (this is required for contacts to appear) <br>
-Now, on any website, press Ctrl+Alt+H (Command+Alt+H for mac) to open the Editor menu <br>
-![Highlight and Save](https://media.giphy.com/media/XvENrZxERfG4ePYIgr/giphy.gif)
+Now, on any website, press Ctrl+Alt+H (Command+Alt+H for mac) to open the Editor menu <br><br>
+![Highlight and Save](https://media.giphy.com/media/XvENrZxERfG4ePYIgr/giphy.gif)<br><br>
 Click on the Highlighter to highlight any text you'd like <br>
 If you make a mistake, use the Eraser to get rid of it! <br>
 Once everything important is highlighted click the save button to keep it on refresh <br>
