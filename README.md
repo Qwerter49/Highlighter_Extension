@@ -9,21 +9,21 @@ Frontend: Web Extension API's, Vue for popup <br>
 Backend: Node, Express, PostgreSQL
 
 ## How to Use
-inContext is undergoing the review process in the Chrome Web Store, until it is availabe, follow these steps.
-Clone down the repo to your local machine
-cd into the repository and run nom install
-run npm run build to build the dist directory
-In Google Chrome, type in chrome://extensions in your url and press enter
-On the top right, click the toggle that says Developer Mode
-Click on the button that says "load unpacked"
-Navigate to where you cloned down inContext
-Select the dist file 
-inContext is now installed on your browser. Make sure you are signed into a gmail account
-Turn on Chrome Sync by pressing the icon on the top right of chrome and clicking "turn on sync" if it is off (this is required for contacts to appear)
-Now, on any website, press Ctrl+Alt+H (Command+Alt+H for mac) to open the Editor menu
-Click on the Highlighter to highlight any text you'd like
-If you make a mistake, use the Eraser to get rid of it!
-Once everything important is highlighted click the save button to keep it on refresh
+inContext is undergoing the review process in the Chrome Web Store, until it is availabe, follow these steps.<br>
+Clone down the repo to your local machine <br>
+cd into the repository and run nom install <br>
+run npm run build to build the dist directory <br>
+In Google Chrome, type in chrome://extensions in your url and press enter <br>
+On the top right, click the toggle that says Developer Mode <br>
+Click on the button that says "load unpacked" <br>
+Navigate to where you cloned down inContext <br>
+Select the dist file <br>
+inContext is now installed on your browser. Make sure you are signed into a gmail account <br>
+Turn on Chrome Sync by pressing the icon on the top right of chrome and clicking "turn on sync" if it is off (this is required for contacts to appear) <br>
+Now, on any website, press Ctrl+Alt+H (Command+Alt+H for mac) to open the Editor menu <br>
+Click on the Highlighter to highlight any text you'd like <br>
+If you make a mistake, use the Eraser to get rid of it! <br>
+Once everything important is highlighted click the save button to keep it on refresh <br>
 If a friend needs the website, click on the inContext icon in the top right in your browser bar, go to contacts, and press "Send Context"
 
 
