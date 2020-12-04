@@ -1,4 +1,4 @@
-   ![inContext Logo](/public/icons/inContext_large.png)
+ ![inContext Logo](/public/icons/inContext_large.png)
  ---
  
  ## Description
