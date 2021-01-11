@@ -49,7 +49,8 @@ export default {
           init)
           .then((response) => response.json())
           .then((results) => {
-            this.listOfContacts = results.connections
+            this.listOfContacts = results.connections;
+            this.listOfContacts = this.listOfContacts.sort();
           })
       })
     },
