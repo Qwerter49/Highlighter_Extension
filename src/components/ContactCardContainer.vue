@@ -68,7 +68,7 @@ export default {
 
 <style>
 .cards-container {
-    height: 350px;
+    height: 319px;
     overflow: overlay;
     padding-right: 8px;
 }

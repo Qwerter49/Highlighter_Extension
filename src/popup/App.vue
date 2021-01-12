@@ -96,7 +96,7 @@ export default {
 <style>
 html {
   width: 250px;
-  height: 250px;
+  height: 350px;
   background-color: #c2a9e5;
 }
 #tab-nav {
