@@ -1,10 +1,9 @@
 <template>
     <div class="container">
-        <!-- <div>"{{ sortContacts }}"</div> -->
-        <input class="search-bar" v-model="contacts" type="text" placeholder="search contacts">
-    <div v-if="listOfContacts.length > 0" class="cards-container">
-        <div v-for="singleContact in sortContacts" :key="singleContact">
-            <ContactCard :contact="singleContact"/>
+        <input class="search-bar" v-model="searchQuery" type="text" placeholder="search contacts">
+    <div v-if="sortContacts.length > 0" class="cards-container">
+        <div v-for="item in resultQuery" :key="item">
+            <ContactCard :contact="item"/>
         </div>
     </div>
     <div v-else class="cards-container">
@@ -24,7 +23,7 @@ export default {
     components: { ContactCard, BlankContactCard },
     data(){
         return {
-            contacts: "",
+            searchQuery: "",
         }
     },
     props: {
@@ -53,6 +52,15 @@ export default {
                 i++
             }
             return sortedList.sort(compare)
+        },
+        resultQuery: function() {
+            if(this.searchQuery){
+                return this.sortContacts.filter((item) => {
+                    return this.searchQuery.toLowerCase().split(' ').every(v => item.names[0].displayName.toLowerCase().includes(v))
+                })
+            } else {
+                return this.sortContacts
+            }
         }
     }
 };
