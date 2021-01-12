@@ -1,9 +1,9 @@
 <template>
     <div class="container">
-        <div>"{{ sortContacts }}"</div>
-        <!-- <input class="search-bar" v-model="contacts" type="text" placeholder="search contacts"> -->
+        <!-- <div>"{{ sortContacts }}"</div> -->
+        <input class="search-bar" v-model="contacts" type="text" placeholder="search contacts">
     <div v-if="listOfContacts.length > 0" class="cards-container">
-        <div v-for="singleContact in listOfContacts" :key="singleContact">
+        <div v-for="singleContact in sortContacts" :key="singleContact">
             <ContactCard :contact="singleContact"/>
         </div>
     </div>
@@ -34,12 +34,25 @@ export default {
         sortContacts: function() {
             let sortedList = []
             let i = 0
+            function compare(a, b) {
+                const nameA = a.names[0].displayName.toUpperCase();
+                const nameB = b.names[0].displayName.toUpperCase();
+
+                let comparison = 0;
+                if (nameA > nameB) {
+                    comparison = 1;
+                } else if (nameA < nameB) {
+                    comparison = -1;
+                }
+                return comparison;
+            }
             while(i < this.listOfContacts.length){
-                console.log(this.listOfContacts.length)
-                // console.log(this.listOfContacts[i].names[0].displayName)
+                if(this.listOfContacts[i].names){
+                    sortedList.push(this.listOfContacts[i])
+                }
                 i++
             }
-            return sortedList
+            return sortedList.sort(compare)
         }
     }
 };
