@@ -29,11 +29,8 @@ export default {
     props: {
         listOfContacts: Array,
     },
-    computed: {
-        sortContacts: function() {
-            let sortedList = []
-            let i = 0
-            function compare(a, b) {
+    methods: {
+        compare: function(a, b) {
                 const nameA = a.names[0].displayName.toUpperCase();
                 const nameB = b.names[0].displayName.toUpperCase();
 
@@ -45,13 +42,18 @@ export default {
                 }
                 return comparison;
             }
+    },
+    computed: {
+        sortContacts: function() {
+            let sortedList = []
+            let i = 0
             while(i < this.listOfContacts.length){
                 if(this.listOfContacts[i].names){
                     sortedList.push(this.listOfContacts[i])
                 }
                 i++
             }
-            return sortedList.sort(compare)
+            return sortedList.sort(this.compare)
         },
         resultQuery: function() {
             if(this.searchQuery){
