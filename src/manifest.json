@@ -3,7 +3,7 @@
   "name": "inContext",
   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAkCXvpzMpT7z/H1267BluZYX/WK9lvxJ7VSCN7zgaTR0ZEWA46DcxCpqwDFFbmJeb68OP/OHosc8aFDhRksaGhg+c/qUO9S9yJM5/uFM1hEv0la+2UIU4HtMX5y7VHqiNvr9+nx7TE1LuU70wAOigd7yB8vDmIDxtBuQtv1qrhvFVhkDjwZPVW/f8GIS4o+7aG2+PCo/VQGmYwhg6CZ3B2B84f+wV3Y8Xejgul+sQaS7pmuvK/Joq90JNKjIJ+F0SyqlgrF5umckPWcxcdmUfngTQmFOym2okk4Ivu6eZj6yNAWbNQw244vZGdTTpJLRRKVzUShhXIBId5eyOK08G6QIDAQAB",
   "homepage_url": "http://localhost:8080/",
-  "description": "A browser extension for highlighting websites",
+  "description": "A browser extension for highlighting websites and sending them to friends.",
   "default_locale": "en",
   "oauth2": {
     "client_id": "25227820849-0hipvn5m85jh0evo5kh04ui0m80du5dn.apps.googleusercontent.com",

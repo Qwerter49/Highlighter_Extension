@@ -45,11 +45,12 @@ export default {
           'contentType': 'json'
         };
         fetch(
-          `https://people.googleapis.com/v1/people/me/connections?personFields=names,photos,emailAddresses&key=${process.env.VUE_APP_APIKEY}`,
+          `https://people.googleapis.com/v1/people/me/connections?pageSize=500&personFields=names,photos,emailAddresses&key=${process.env.VUE_APP_APIKEY}`,
           init)
           .then((response) => response.json())
           .then((results) => {
-            this.listOfContacts = results.connections
+            this.listOfContacts = results.connections;
+            this.listOfContacts = this.listOfContacts.sort();
           })
       })
     },
@@ -95,8 +96,8 @@ export default {
 <style>
 html {
   width: 250px;
-  height: 250px;
-  background-color: #78b7d2;
+  height: 350px;
+  background-color: #c2a9e5;
 }
 #tab-nav {
   display: flex;
@@ -110,7 +111,7 @@ html {
   cursor: pointer;
 }
 #tab-nav h3 {
-  color: #f6d83e;
+  color: #ffe100;
 }
 ::-webkit-scrollbar {
     width: 5px;
